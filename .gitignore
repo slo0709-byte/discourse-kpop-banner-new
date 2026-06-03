@@ -1,0 +1,16 @@
+node_modules/
+coverage/
+tmp/
+.tmp/
+.DS_Store
+
+# Local QA artifacts
+evidence/
+evidence-*.txt
+*.log
+*.tmp
+
+# Local credentials and environment files
+.env
+.env.*
+!.env.example

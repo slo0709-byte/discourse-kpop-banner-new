@@ -1,0 +1,71 @@
+name: Plugin Tests
+
+"on":
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  plugin-tests:
+    runs-on: ubuntu-latest
+    container: discourse/discourse_test:release
+
+    env:
+      RAILS_ENV: test
+      PGUSER: discourse
+      PGPASSWORD: discourse
+      LOAD_PLUGINS: "1"
+
+    steps:
+      - name: Checkout Discourse
+        uses: actions/checkout@v4
+        with:
+          repository: discourse/discourse
+          path: discourse
+
+      - name: Checkout plugin
+        uses: actions/checkout@v4
+        with:
+          path: discourse/plugins/discourse-kpop-banner
+
+      - name: Start Redis
+        working-directory: discourse
+        run: redis-server /etc/redis/redis.conf &
+
+      - name: Start Postgres
+        working-directory: discourse
+        run: |
+          chown -R postgres /var/run/postgresql
+          sudo -E -u postgres script/start_test_db.rb
+          sudo -u postgres psql -c "CREATE ROLE $PGUSER LOGIN SUPERUSER PASSWORD '$PGPASSWORD';"
+
+      - name: Setup gems
+        working-directory: discourse
+        run: |
+          ln -s /var/www/discourse/vendor/bundle vendor/bundle
+          bundle config --local path vendor/bundle
+          bundle config --local deployment true
+          bundle config --local without development
+          bundle install --jobs "$(($(nproc) - 1))"
+
+      - name: Install frontend dependencies
+        working-directory: discourse
+        run: pnpm install --frozen-lockfile
+
+      - name: Prepare database
+        working-directory: discourse
+        run: |
+          bin/rake db:create
+          bin/rake db:migrate
+
+      - name: Run plugin specs
+        working-directory: discourse
+        run: bundle exec rspec plugins/discourse-kpop-banner/spec
+
+      - name: Run QA helper smoke checks
+        working-directory: discourse
+        run: |
+          ruby plugins/discourse-kpop-banner/scripts/qa/create_api_users.rb --help
+          bundle exec rails runner plugins/discourse-kpop-banner/scripts/qa/create_api_users.rb
+          node plugins/discourse-kpop-banner/scripts/qa/banner_browser_qa.mjs --help

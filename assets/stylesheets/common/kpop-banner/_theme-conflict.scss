@@ -1,0 +1,86 @@
+/* Compatibility boundary for host themes that hide K-pop banner class names. */
+#main-outlet [data-kpop-banner],
+[data-kpop-banner] {
+  display: block !important;
+}
+
+#main-outlet [data-kpop-banner] [class*="kpop-celebration__"],
+[data-kpop-banner] [class*="kpop-celebration__"] {
+  display: revert !important;
+}
+
+#main-outlet [data-kpop-banner] .kpop-celebration__glow,
+[data-kpop-banner] .kpop-celebration__glow {
+  display: none !important;
+}
+
+#main-outlet [data-kpop-banner] .kpop-celebration__main-row,
+#main-outlet [data-kpop-banner] .kpop-celebration__hero-main,
+#main-outlet [data-kpop-banner] .kpop-celebration__left,
+#main-outlet [data-kpop-banner] .kpop-celebration__center,
+#main-outlet [data-kpop-banner] .kpop-celebration__artist-row,
+#main-outlet [data-kpop-banner] .kpop-celebration__info-header,
+#main-outlet [data-kpop-banner] .kpop-celebration__right,
+#main-outlet [data-kpop-banner] .kpop-celebration__stats,
+#main-outlet [data-kpop-banner] .kpop-celebration__actions,
+#main-outlet [data-kpop-banner] .kpop-celebration__mini-sidebar,
+#main-outlet [data-kpop-banner] .kpop-celebration__mini-item,
+#main-outlet [data-kpop-banner] .kpop-celebration__mini-left,
+#main-outlet [data-kpop-banner] .kpop-celebration__platform-track,
+[data-kpop-banner] .kpop-celebration__main-row,
+[data-kpop-banner] .kpop-celebration__hero-main,
+[data-kpop-banner] .kpop-celebration__left,
+[data-kpop-banner] .kpop-celebration__center,
+[data-kpop-banner] .kpop-celebration__artist-row,
+[data-kpop-banner] .kpop-celebration__info-header,
+[data-kpop-banner] .kpop-celebration__right,
+[data-kpop-banner] .kpop-celebration__stats,
+[data-kpop-banner] .kpop-celebration__actions,
+[data-kpop-banner] .kpop-celebration__mini-sidebar,
+[data-kpop-banner] .kpop-celebration__mini-item,
+[data-kpop-banner] .kpop-celebration__mini-left,
+[data-kpop-banner] .kpop-celebration__platform-track {
+  display: flex !important;
+}
+
+#main-outlet [data-kpop-banner] .kpop-celebration__cover-link,
+#main-outlet [data-kpop-banner] .kpop-celebration__cover-frame,
+#main-outlet [data-kpop-banner] .kpop-celebration__cover,
+#main-outlet [data-kpop-banner] .kpop-celebration__extra-info,
+#main-outlet [data-kpop-banner] .kpop-celebration__platform-marquee,
+[data-kpop-banner] .kpop-celebration__cover-link,
+[data-kpop-banner] .kpop-celebration__cover-frame,
+[data-kpop-banner] .kpop-celebration__cover,
+[data-kpop-banner] .kpop-celebration__extra-info,
+[data-kpop-banner] .kpop-celebration__platform-marquee {
+  display: block !important;
+}
+
+#main-outlet [data-kpop-banner] .kpop-celebration__close-banner,
+#main-outlet [data-kpop-banner] .kpop-celebration__rank-badge,
+#main-outlet [data-kpop-banner] .kpop-celebration__cover-play,
+#main-outlet [data-kpop-banner] .kpop-celebration__cover-badge,
+#main-outlet [data-kpop-banner] .kpop-celebration__badge,
+#main-outlet [data-kpop-banner] .kpop-celebration__pill,
+#main-outlet [data-kpop-banner] .kpop-celebration__details-btn,
+#main-outlet [data-kpop-banner] .kpop-celebration__icon-btn,
+#main-outlet [data-kpop-banner] .kpop-celebration__source-switch,
+#main-outlet [data-kpop-banner] .kpop-celebration__source-btn,
+#main-outlet [data-kpop-banner] .kpop-celebration__mini-trend,
+#main-outlet [data-kpop-banner] .kpop-celebration__details-icon,
+#main-outlet [data-kpop-banner] .kpop-celebration__like-icon,
+[data-kpop-banner] .kpop-celebration__close-banner,
+[data-kpop-banner] .kpop-celebration__rank-badge,
+[data-kpop-banner] .kpop-celebration__cover-play,
+[data-kpop-banner] .kpop-celebration__cover-badge,
+[data-kpop-banner] .kpop-celebration__badge,
+[data-kpop-banner] .kpop-celebration__pill,
+[data-kpop-banner] .kpop-celebration__details-btn,
+[data-kpop-banner] .kpop-celebration__icon-btn,
+[data-kpop-banner] .kpop-celebration__source-switch,
+[data-kpop-banner] .kpop-celebration__source-btn,
+[data-kpop-banner] .kpop-celebration__mini-trend,
+[data-kpop-banner] .kpop-celebration__details-icon,
+[data-kpop-banner] .kpop-celebration__like-icon {
+  display: inline-flex !important;
+}
