@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { chromium } from "playwright";
 
-const baseUrl = process.env.BASE_URL || "http://localhost:3000";
+const baseUrl = process.env.BASE_URL || "http://23.165.248.117";
 const adminUser = process.env.KPOP_REMOTE_ADMIN_USER;
 const adminPass = process.env.KPOP_REMOTE_ADMIN_PASS;
 const evidenceDir = process.env.KPOP_REMOTE_EVIDENCE || "evidence/remote-install";
